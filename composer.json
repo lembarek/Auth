@@ -2,8 +2,8 @@
     "name": "Lembarek/Auth",
     "description": "this allow to register and login using laravel",
     "keywords": [
-        "Lembarek",
-        "Auth"
+        "lembarek",
+        "auth"
     ],
     "homepage": "https://github.com/Lembarek/Auth",
     "license": "MIT",
