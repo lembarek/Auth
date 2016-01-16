@@ -1,6 +1,6 @@
 <?php
 
-namespace Lembarek\Auth;
+namespace Lembarek\Auth\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
