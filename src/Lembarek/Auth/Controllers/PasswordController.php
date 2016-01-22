@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Lembarek\Auth\Controllers;
 
 use Lembarek\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;

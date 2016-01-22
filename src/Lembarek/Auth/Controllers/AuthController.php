@@ -1,15 +1,13 @@
-<?php namespace App\Http\Controllers\Auth;
+<?php namespace Lembarek\Auth\Controllers;
 
 use Auth;
 use Redirect;
 use Event;
 use App\Site\User\Models\User;
-use Illuminate\Http\Request;
-use Lembarek\Controllers\Controller;
-use Site\User\Repositories\UserRepositoryInterface;
 use App\Events\UserWasCreated;
-use Site\Validation\RegisterValidator;
-use Site\Validation\LoginValidator;
+use Lembarek\Auth\Requests\RegisterRequest;
+use Lembarek\Auth\Requests\LoginRequest;
+use Lembarek\Auth\Repositories\UserRepositoryInterface;
 
 class AuthController extends Controller
 {
@@ -17,15 +15,9 @@ class AuthController extends Controller
 
     private $userRepo;
 
-    protected $registerValidator;
-
-    protected $loginValidator;
-
-    public function __construct(UserRepositoryInterface $userRepo, RegisterValidator $registerValidator, LoginValidator $loginValidator)
+    public function __construct(UserRepositoryInterface $userRepo)
     {
         $this->userRepo = $userRepo;
-        $this->registerValidator = $registerValidator;
-        $this->loginValidator = $loginValidator;
     }
 
 
@@ -36,7 +28,7 @@ class AuthController extends Controller
      */
     public function register()
     {
-        return view('auth.register');
+        return view('auth::register');
     }
 
 
@@ -45,11 +37,9 @@ class AuthController extends Controller
      *
      * @return Response
      */
-    public function postRegister(Request $request)
+    public function postRegister(RegisterRequest $request)
     {
         $inputs = $request->except('_token');
-
-        $this->registerValidator->validate($inputs);
 
         $user = $this->userRepo->create($inputs);
 
@@ -75,11 +65,9 @@ class AuthController extends Controller
      *
      * @return Response
      */
-    public function postLogin(Request $request)
+    public function postLogin(LoginRequest $request)
     {
         $inputs = $request->except('_token');
-
-        $this->loginValidator->validate($inputs);
 
         Auth::attempt($inputs);
 
