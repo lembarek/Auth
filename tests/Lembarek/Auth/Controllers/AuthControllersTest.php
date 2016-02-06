@@ -2,13 +2,14 @@
 
 class AuthControllerTest extends TestCase {
 
+
     /**
     * @test
     */
     public function it_regiser_a_valide_user()
     {
         $name = 'joe';
-        $email = 'joe2@gmail.com';
+        $email = 'joe@gmail.com';
         $password = 'secret';
         $this->visit(route('user:register'))
                 ->type($name, 'username')
@@ -43,9 +44,10 @@ class AuthControllerTest extends TestCase {
     public function it_login_a_user()
     {
         //Arrange
-        $email = 'joe2011@gmail.com';
+        $email = 'joe@gmail.com';
         $password = 'password';
-        $user = Factory(Site\User\Models\User::class)->create(compact('email', 'password'));
+
+        $user = factory(Lembarek\Auth\Models\User::class)->create();
 
         //Act
         $this->visit(route('user:login'))
@@ -64,9 +66,8 @@ class AuthControllerTest extends TestCase {
     public function it_try_to_login_with_invalid_inputs()
     {
         //Arrange
-        $email = 'joe2011@gmail.com';
+        $email = 'joe@gmail.com';
         $password = 'password';
-        $user = Factory(Site\User\Models\User::class)->create(compact('email', 'password'));
 
 
         //Act
@@ -85,7 +86,7 @@ class AuthControllerTest extends TestCase {
     public function it_try_to_login_with_unexisted_user()
     {
         //Arrange
-        $email = 'joe2011@gmail.com';
+        $email = 'joe@gmail.com';
         $password = 'password';
 
         //Act
