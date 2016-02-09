@@ -1,9 +1,9 @@
 <?php namespace Lembarek\Auth\Repositories;
 
-use Lembarek\Core\Repositories\Repository as MainRepository;
+use Lembarek\Core\Repositories\Repository;
 use Lembarek\Auth\Models\User;
 
-class UserRepository extends MainRepository implements UserRepositoryInterface {
+class UserRepository extends Repository implements UserRepositoryInterface {
 
     protected $model;
 

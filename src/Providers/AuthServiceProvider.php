@@ -1,6 +1,6 @@
 <?php namespace Lembarek\Auth\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use Lembarek\Core\Providers\ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -13,19 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (! $this->app->routesAreCached()) {
-              require __DIR__.'/../routes.php';
-        }
-
-        $this->loadViewsFrom(__DIR__.'/../views', 'auth');
-
-        $this->publishes([
-                __DIR__.'/../views' => base_path('resources/views/')
-        ], 'views');
-
-        $this->publishes([
-                __DIR__.'/../migrations' => base_path('database/migrations/')
-        ], 'migrations');
+        $this->fullBoot('auth', __DIR__.'/../');
     }
 
     /**
