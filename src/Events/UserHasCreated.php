@@ -2,7 +2,6 @@
 
 namespace Lembarek\Auth\Events;
 
-use App\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Lembarek\Auth\Models\User;

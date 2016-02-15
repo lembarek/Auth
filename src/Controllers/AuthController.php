@@ -4,7 +4,6 @@ use Auth;
 use Redirect;
 use Event;
 use Hash;
-use App\Site\User\Models\User;
 use Lembarek\Auth\Events\UserHasCreated;
 use Lembarek\Auth\Requests\RegisterRequest;
 use Lembarek\Auth\Requests\LoginRequest;
