@@ -1,4 +1,6 @@
-<?php namespace Lembarek\Auth\Repositories;
+<?php
+
+ namespace Lembarek\Auth\Repositories;
 
 Interface UserRepositoryInterface
 {

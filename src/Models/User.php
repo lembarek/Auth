@@ -1,4 +1,6 @@
-<?php namespace Lembarek\Auth\Models;
+<?php
+
+ namespace Lembarek\Auth\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

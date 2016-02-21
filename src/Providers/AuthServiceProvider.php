@@ -1,4 +1,6 @@
-<?php namespace Lembarek\Auth\Providers;
+<?php
+
+ namespace Lembarek\Auth\Providers;
 
 use Lembarek\Core\Providers\ServiceProvider;
 

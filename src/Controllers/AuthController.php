@@ -1,4 +1,6 @@
-<?php namespace Lembarek\Auth\Controllers;
+<?php 
+
+namespace Lembarek\Auth\Controllers;
 
 use Auth;
 use Redirect;
