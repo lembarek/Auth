@@ -3,9 +3,12 @@
  namespace Lembarek\Auth\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Lembarek\Role\Traits\Roleable;
 
 class User extends Authenticatable
 {
+    use Roleable;
+
     /**
      * The attributes that are mass assignable.
      *
