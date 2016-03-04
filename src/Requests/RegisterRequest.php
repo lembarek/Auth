@@ -28,6 +28,4 @@ class RegisterRequest extends Request
             'password' => 'required|confirmed',
         ];
     }
-
-
 }

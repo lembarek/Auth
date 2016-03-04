@@ -5,7 +5,8 @@
 use Lembarek\Core\Repositories\Repository;
 use Lembarek\Auth\Models\User;
 
-class UserRepository extends Repository implements UserRepositoryInterface {
+class UserRepository extends Repository implements UserRepositoryInterface
+{
 
     protected $model;
 
@@ -13,6 +14,4 @@ class UserRepository extends Repository implements UserRepositoryInterface {
     {
         $this->model = $model;
     }
-
-
 }

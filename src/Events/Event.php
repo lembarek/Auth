@@ -2,8 +2,8 @@
 
  namespace Lembarek\Auth\Events;
 
-abstract class Event {
+abstract class Event
+{
 
-	//
-
+    //
 }

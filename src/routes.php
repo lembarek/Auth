@@ -1,23 +1,23 @@
 <?php
 
-Route::group(['middleware' => ['web']], function(){
+Route::group(['middleware' => ['web']], function () {
 
-Route::get('/register', [
+    Route::get('/register', [
     'as' => 'user:register',
     'uses' => 'Lembarek\Auth\Controllers\AuthController@register',
     ]);
 
-Route::post('/register', [
+    Route::post('/register', [
     'as' => 'user:register',
     'uses' => 'Lembarek\Auth\Controllers\AuthController@postRegister',
     ]);
 
-Route::get('/login', [
+    Route::get('/login', [
     'as' => 'user:login',
     'uses' => 'Lembarek\Auth\Controllers\AuthController@login',
     ]);
 
-Route::post('/login', [
+    Route::post('/login', [
     'as' => 'user:login',
     'uses' => 'Lembarek\Auth\Controllers\AuthController@postLogin',
     ]);

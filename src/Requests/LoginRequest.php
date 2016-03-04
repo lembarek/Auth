@@ -27,6 +27,4 @@ class LoginRequest extends Request
             'password' => 'required',
         ];
     }
-
-
 }

@@ -72,7 +72,9 @@ class AuthController extends Controller
 
         $attemp = Auth::attempt($inputs);
 
-        if(!$attemp) return Redirect::back();
+        if (!$attemp) {
+            return Redirect::back();
+        }
 
         return Redirect::route('home');
 

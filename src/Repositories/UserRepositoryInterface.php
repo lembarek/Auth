@@ -2,7 +2,7 @@
 
  namespace Lembarek\Auth\Repositories;
 
-Interface UserRepositoryInterface
+interface UserRepositoryInterface
 {
 
 }
