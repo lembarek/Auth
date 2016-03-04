@@ -23,5 +23,13 @@ Route::group(['middleware' => ['web']], function () {
     ]);
 
 
+    Route::get('/logout', [
+        'as' => 'logout',
+        'uses' => 'Lembarek\Auth\Controllers\AuthController@logout',
+        ]);
+
+
+
+
 
 });

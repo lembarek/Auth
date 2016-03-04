@@ -76,7 +76,19 @@ class AuthController extends Controller
             return Redirect::back();
         }
 
-        return Redirect::route('home');
+        return Redirect::intended('home');
 
+    }
+
+    /**
+     * logout
+     *
+     * @param  string  $
+     * @return Response
+     */
+    public function logout()
+    {
+        Auth::logout();
+        return Redirect::route('home');
     }
 }
