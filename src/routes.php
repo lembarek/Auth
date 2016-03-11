@@ -39,4 +39,16 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'auth::reset.sendToEmail',
         'uses' => 'Lembarek\Auth\Controllers\PasswordController@sendToEmail',
         ]);
+
+
+    Route::get('/reset_password/{token}', [
+        'as' => 'auth::reset_password',
+        'uses' => 'Lembarek\Auth\Controllers\PasswordController@showPasswordField',
+        ]);
+
+
+    Route::post('/post_reset_password', [
+        'as' => 'auth::post_reset_password',
+        'uses' => 'Lembarek\Auth\Controllers\PasswordController@resetPassword',
+        ]);
 });
