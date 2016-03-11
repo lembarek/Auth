@@ -29,7 +29,14 @@ Route::group(['middleware' => ['web']], function () {
         ]);
 
 
+    Route::get('/reset_password', [
+        'as' => 'auth::reset.showEmail',
+        'uses' => 'Lembarek\Auth\Controllers\PasswordController@showEmail',
+        ]);
 
 
-
+    Route::post('/reset_password', [
+        'as' => 'auth::reset.sendToEmail',
+        'uses' => 'Lembarek\Auth\Controllers\PasswordController@sendToEmail',
+        ]);
 });

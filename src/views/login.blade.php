@@ -24,6 +24,7 @@
     <div class="form-group">
         <input type="submit" value="{{ Lang::get('form.login') }}" class="btn btn-primary" />
     </div>
+    <a href="{{ route('auth::reset.showEmail') }}">forget your password</a>
 </form>
 @stop
 

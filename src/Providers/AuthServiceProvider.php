@@ -29,5 +29,11 @@ class AuthServiceProvider extends ServiceProvider
             'Lembarek\Auth\Repositories\UserRepositoryInterface',
             'Lembarek\Auth\Repositories\UserRepository'
         );
+
+        $this->app->bind(
+            'Lembarek\Auth\Repositories\ResetPasswordRepositoryInterface',
+            'Lembarek\Auth\Repositories\ResetPasswordRepository'
+        );
+
     }
 }
