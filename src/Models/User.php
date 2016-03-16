@@ -19,11 +19,17 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes excluded from the model's JSON form.
+     * The attributes excluded from the models JSON form.
      *
      * @var array
      */
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function  profile()
+    {
+        return $this->hasOne('Lembarek\Profile\Models\Profile');
+    }
+
 }
