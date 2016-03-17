@@ -6,6 +6,8 @@
 
 @section('content')
 
+@include('core::partials.errors')
+
 <form method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
     <div class="form-group">
