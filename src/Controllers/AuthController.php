@@ -46,7 +46,7 @@ class AuthController extends Controller
 
         Event::fire(new UserHasCreated($user));
 
-        return Redirect::route('core:home');
+        return Redirect::route('core::home');
     }
 
 
@@ -76,7 +76,7 @@ class AuthController extends Controller
             return Redirect::back();
         }
 
-        return Redirect::intended(route('core:home'));
+        return Redirect::intended(route('core::home'));
 
     }
 
@@ -90,6 +90,6 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return Redirect::route('home');
+        return Redirect::route('core::home');
     }
 }

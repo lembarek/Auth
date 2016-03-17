@@ -46,7 +46,7 @@ class PasswordController extends Controller
         $request['token'] = str_random(40);
         $this->resetPasswordRepo->create($request);
         $userMailer->sendResetPasswordEmailTo($request);
-        return redirect()->route('core:home');
+        return redirect()->route('core::home');
     }
 
 
@@ -78,6 +78,6 @@ class PasswordController extends Controller
         $record->delete();
 
         $user = $this->userRepo->where('email', $email)->update(['password' => $request['password']]);
-        return redirect()->route('core:home');
+        return redirect()->route('core::home');
     }
 }
