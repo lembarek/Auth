@@ -3,6 +3,7 @@
  namespace Lembarek\Auth\Providers;
 
 use Lembarek\Core\Providers\ServiceProvider;
+use \Illuminate\Contracts\Events\Dispatcher as EventDispatcher;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -13,9 +14,10 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(EventDispatcher $event)
     {
         $this->fullBoot('auth', __DIR__.'/../');
+        $event->listen('Lembarek\Auth\Events\UserHasCreated', 'Lembarek\Auth\Listeners\SendWelcomeMessage');
     }
 
     /**

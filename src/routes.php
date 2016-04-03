@@ -1,7 +1,8 @@
 <?php
 
-Route::group(['as' => 'auth::', 'middleware' => ['web']], function () {
+;
 
+Route::group(['as' => 'auth::', 'middleware' => ['web']], function () {
     Route::get('/register', [
     'as' => 'register',
     'uses' => 'Lembarek\Auth\Controllers\AuthController@register',
