@@ -1,6 +1,5 @@
 <?php
 
-;
 
 Route::group(['as' => 'auth::', 'middleware' => ['web']], function () {
     Route::get('/register', [
