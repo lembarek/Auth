@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('auth::layout.master')
 
 @section('title')
 
