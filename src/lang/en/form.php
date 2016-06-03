@@ -5,4 +5,7 @@ return [
     'password' => 'password',
     'login' => 'login',
     'forget_your_password' => 'forget your password',
+    'username' => 'username',
+    'password_confirmation'=> 'password confirmation',
+    'register' => 'register',
 ];
