@@ -27,7 +27,7 @@
     <div class="form-group">
         <div class="col-md-6 col-md-push-4">
             <input type="submit" value="{{ trans('auth::form.login') }}" class="btn btn-primary" />
-            <a href="{{ route('auth::reset.showEmail') }}">{{ trans('auth::form.forget_your_password') }}</a>
+            <a href="{{ route('auth::reset.showEmail') }}" title="{{ trans('auth::form.forget_your_password') }}">{{ trans('auth::form.forget_your_password') }}</a>
         </div>
     </div>
 </form>
