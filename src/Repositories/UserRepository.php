@@ -13,4 +13,15 @@ class UserRepository extends Repository implements UserRepositoryInterface
     {
         $this->model = $model;
     }
+
+    /**
+     * get a single user by its username
+     *
+     * @param  string  $username
+     * @return User
+     */
+    public function byUsername($username)
+    {
+        return $this->model->whereUsername($username)->first();
+    }
 }
