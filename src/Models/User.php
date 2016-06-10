@@ -4,6 +4,7 @@
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Lembarek\Role\Traits\Roleable;
+use Lembarek\Auth\Models\User;
 
 class User extends Authenticatable
 {
@@ -30,6 +31,35 @@ class User extends Authenticatable
     public function  profile()
     {
         return $this->hasOne('Lembarek\Profile\Models\Profile');
+    }
+
+    /**
+     * check if the current user is supurior then $user
+     *
+     * @param  User  $user
+     * @return boolean
+     */
+    public function isSuperiorThen($user)
+    {
+        return $this->maxRole()->order > $user->maxRole()->order;
+    }
+
+    /**
+     * return the most supurior role for a user
+     *
+     * @return Lembarek\Role\Models\Role
+     */
+    public function maxRole()
+    {
+        $roles = $this->roles();
+        $r = $roles->first();
+
+        foreach ($roles as $role){
+            if($role->order > $r->order)
+                $r = role;
+        }
+
+        return $r;
     }
 
 }
