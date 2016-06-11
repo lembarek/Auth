@@ -41,6 +41,8 @@ class User extends Authenticatable
      */
     public function isSuperiorThen($user)
     {
+        if( ! $this->maxRole()) return false;
+        if( ! $user->maxRole()) return true;
         return $this->maxRole()->order > $user->maxRole()->order;
     }
 
