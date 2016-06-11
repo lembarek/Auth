@@ -77,6 +77,18 @@ class User extends Authenticatable
         return $this->maxRole()->order >= $role->order;
     }
 
+
+    /**
+     * can delete a role
+     *
+     * @param  User $user
+     * @return boolean
+     */
+    public function canDeleteRole(User $user)
+    {
+        return $this->maxRole()->order >= $user->maxRole()->order;
+    }
+
     /**
      * return all available role for this user
      *
