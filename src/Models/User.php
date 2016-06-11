@@ -5,6 +5,7 @@
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Lembarek\Role\Traits\Roleable;
 use Lembarek\Auth\Models\User;
+use Lembarek\Role\Models\Role;
 
 class User extends Authenticatable
 {
@@ -62,6 +63,38 @@ class User extends Authenticatable
         }
 
         return $r;
+    }
+
+
+    /**
+     * can add a role
+     *
+     * @param  Role  $role
+     * @return boolean
+     */
+    public function canAddRole(Role $role)
+    {
+        return $this->maxRole()->order >= $role->order;
+    }
+
+    /**
+     * return all available role for this user
+     *
+     * @param User $user
+     * @return array
+     */
+    public function getRolesFor(User $user)
+    {
+
+        $userRoles = $user->roles()->get();
+
+        $roles  = Role::where('order', '<=', $this->maxRole()->order);
+
+        foreach ($userRoles as $role) {
+            $roles = $roles->where('name', '!=', $role->name);
+        }
+
+        return $roles->get();
     }
 
 }
