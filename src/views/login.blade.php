@@ -26,6 +26,7 @@
 
     <div class="form-group">
         <div class="col-md-6 col-md-push-4">
+            <label for="rememberme"><input type="checkbox" name="rememberme"  value="1">{{ trans('auth::form.rememberme') }}</label>
             <input type="submit" value="{{ trans('auth::form.login') }}" class="btn btn-primary" />
             <a href="{{ route('auth::reset.showEmail') }}" title="{{ trans('auth::form.forget_your_password') }}">{{ trans('auth::form.forget_your_password') }}</a>
         </div>

@@ -8,4 +8,5 @@ return [
     'username' => 'username',
     'password_confirmation'=> 'password confirmation',
     'register' => 'register',
+    'rememberme' =>'remember me',
 ];

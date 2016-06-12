@@ -68,9 +68,11 @@ class AuthController extends Controller
      */
     public function postLogin(LoginRequest $request)
     {
-        $inputs = $request->except('_token');
+        $inputs = $request->except('_token','rememberme');
 
-        $attemp = Auth::attempt($inputs);
+        $rememberme = $request->get('rememberme');
+
+        $attemp = Auth::attempt($inputs, !!$rememberme);
 
         if (!$attemp) {
             return Redirect::back();
