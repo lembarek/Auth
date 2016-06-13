@@ -11,17 +11,26 @@
 
 <h2 class="form-signin-heading">{{ trans('auth::form.signin') }}</h2>
 
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-
-<input type="email" class="form-control"
-        placeholder={{ trans("core::general.email") }} class="form-control"
-        name="email" value="{{ old('email') }}"
+<input
+    type="hidden"
+    name="_token"
+    value="{{ csrf_token() }}"
 >
 
-<input type="password" class="form-control"
-       placeholder={{ trans("core::general.password") }}
-       name="password" value="{{ old('password') }}"
+
+<input
+    type="email"
+    class="form-control"
+    placeholder={{ trans("core::general.email") }}
+    class="form-control"
+    name="email" value="{{ old('email') }}"
+>
+
+<input
+    type="password"
+    class="form-control"
+    placeholder={{ trans("core::general.password") }}
+    name="password" value="{{ old('password') }}"
 >
 
 <label class="checkbox" for="rememberme">

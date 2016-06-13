@@ -8,38 +8,45 @@
 
 @include('core::partials.errors')
 
-<form method="post">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-    <div class="form-group">
-        <label class="col-md-4 control-label">{{ trans('auth::form.username')}}</label>
-        <div class="col-md-6">
-        <input type="text" class="form-control" name="username" value="{{ old('username') }}">
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-md-4 control-label">{{ trans('auth::form.email')}}</label>
-        <div class="col-md-6">
-        <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-        </div>
-    </div>
+<form method="post" class="form-register">
+<input
+      type="hidden"
+      name="_token"
+      value="{{ csrf_token() }}"/
+>
+<input
+    type="text"
+    class="form-control"
+    name="username"
+    placeholder={{ trans('core::general.username')}}
+    value="{{ old('username') }}"
+>
+<input
+    type="email"
+    class="form-control"
+    name="email"
+    placeholder={{ trans('core::general.email')}}
+    value="{{ old('email') }}"
+>
+<input
+    type="password"
+    class="form-control"
+    name="password"
+    placeholder={{ trans('core::general.password')}}
+    value="{{ old('password') }}"
+>
+<input
+    type="password"
+    class="form-control"
+    name="password_confirmation"
+    placeholder="{{ trans('core::general.password_confirmation')}}"
+    value="{{ old('password_confirmation') }}"
+>
+<button
+    class="btn btn-lg btn-primary btn-block"
+    type="submit">{{ trans('auth::form.register') }}
+</button>
 
-    <div class="form-group">
-        <label class="col-md-4 control-label">{{ trans('auth::form.password')}}</label>
-        <div class="col-md-6">
-        <input type="password" class="form-control" name="password" value="{{ old('password') }}">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-md-4 control-label">{{ trans('auth::form.password_confirmation')}}</label>
-        <div class="col-md-6">
-        <input type="password" class="form-control" name="password_confirmation" value="{{ old('password_confirmation') }}">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <input type="submit" value="{{ trans('auth::form.register') }}" class="btn btn-primary" />
-    </div>
 </form>
 
 @stop
