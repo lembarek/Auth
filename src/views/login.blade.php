@@ -7,30 +7,41 @@
 @section('content')
 
 @include('core::partials.errors')
+<form method="post" class="form-signin" role="form">
 
-<form method="post">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <div class="form-group">
-        <label class="col-md-4 control-label">{{ trans('auth::form.email')}}</label>
-        <div class="col-md-6">
-            <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-        </div>
-    </div>
+<h2 class="form-signin-heading">{{ trans('auth::form.signin') }}</h2>
 
-    <div class="form-group">
-        <label class="col-md-4 control-label">{{ trans('auth::form.password')}}</label>
-        <div class="col-md-6">
-            <input type="password" class="form-control" name="password" value="{{ old('password') }}">
-        </div>
-    </div>
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-    <div class="form-group">
-        <div class="col-md-6 col-md-push-4">
-            <label for="rememberme"><input type="checkbox" name="rememberme"  value="1">{{ trans('auth::form.rememberme') }}</label>
-            <input type="submit" value="{{ trans('auth::form.login') }}" class="btn btn-primary" />
-            <a href="{{ route('auth::reset.showEmail') }}" title="{{ trans('auth::form.forget_your_password') }}">{{ trans('auth::form.forget_your_password') }}</a>
-        </div>
-    </div>
+
+<input type="email" class="form-control"
+        placeholder={{ trans("core::general.email") }} class="form-control"
+        name="email" value="{{ old('email') }}"
+>
+
+<input type="password" class="form-control"
+       placeholder={{ trans("core::general.password") }}
+       name="password" value="{{ old('password') }}"
+>
+
+<label class="checkbox" for="rememberme">
+    <input type="checkbox" name="rememberme"  value="1">
+    {{ trans('auth::form.rememberme') }}
+</label>
+
+<button
+    class="btn btn-lg btn-primary btn-block"
+    type="submit">{{ trans('auth::form.login') }}
+</button>
+
+<a
+    href="{{ route('auth::reset.showEmail') }}"
+    title="{{ trans('auth::form.forget_your_password') }}"
+    class="pull-right"
+>
+{{ trans('auth::form.forget_your_password') }}
+</a>
+
 </form>
 @stop
 

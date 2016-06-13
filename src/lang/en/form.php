@@ -9,4 +9,5 @@ return [
     'password_confirmation'=> 'password confirmation',
     'register' => 'register',
     'rememberme' =>'remember me',
+    'signin' => 'Please Sign In',
 ];
