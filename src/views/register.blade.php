@@ -8,7 +8,7 @@
 
 @include('core::partials.errors')
 
-<form method="post" class="form-register">
+<form method="post" class="form form-register">
 <input
       type="hidden"
       name="_token"

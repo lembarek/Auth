@@ -7,7 +7,7 @@
 @section('content')
 
 @include('core::partials.errors')
-<form method="post" class="form-signin" role="form">
+<form method="post" class="form form-signin" role="form">
 
 <h2 class="form-signin-heading">{{ trans('auth::form.signin') }}</h2>
 
