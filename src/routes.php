@@ -1,54 +1,54 @@
 <?php
 
 
-Route::group(['as' => 'auth::', 'middleware' => ['web']], function () {
+Route::group(['as' => 'auth::', 'middleware' => ['web'], 'namespace' => 'Lembarek\Auth\Controllers'], function () {
     Route::get('/register', [
     'as' => 'register',
-    'uses' => 'Lembarek\Auth\Controllers\AuthController@register',
+    'uses' => 'AuthController@register',
     ]);
 
     Route::post('/register', [
     'as' => 'register',
-    'uses' => 'Lembarek\Auth\Controllers\AuthController@postRegister',
+    'uses' => 'AuthController@postRegister',
     ]);
 
     Route::get('/login', [
     'as' => 'login',
-    'uses' => 'Lembarek\Auth\Controllers\AuthController@login',
+    'uses' => 'AuthController@login',
     ]);
 
     Route::post('/login', [
     'as' => 'login',
-    'uses' => 'Lembarek\Auth\Controllers\AuthController@postLogin',
+    'uses' => 'AuthController@postLogin',
     ]);
 
 
     Route::get('/logout', [
         'as' => 'logout',
-        'uses' => 'Lembarek\Auth\Controllers\AuthController@logout',
+        'uses' => 'AuthController@logout',
         ]);
 
 
     Route::get('/reset_password', [
         'as' => 'reset.showEmail',
-        'uses' => 'Lembarek\Auth\Controllers\PasswordController@showEmail',
+        'uses' => 'PasswordController@showEmail',
         ]);
 
 
     Route::post('/reset_password', [
         'as' => 'reset.sendToEmail',
-        'uses' => 'Lembarek\Auth\Controllers\PasswordController@sendToEmail',
+        'uses' => 'PasswordController@sendToEmail',
         ]);
 
 
     Route::get('/reset_password/{token}', [
         'as' => 'reset_password',
-        'uses' => 'Lembarek\Auth\Controllers\PasswordController@showPasswordField',
+        'uses' => 'PasswordController@showPasswordField',
         ]);
 
 
     Route::post('/post_reset_password', [
         'as' => 'post_reset_password',
-        'uses' => 'Lembarek\Auth\Controllers\PasswordController@resetPassword',
+        'uses' => 'PasswordController@resetPassword',
         ]);
 });
