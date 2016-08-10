@@ -1,7 +1,11 @@
 <?php
 
 
-Route::group(['as' => 'auth::', 'middleware' => ['web'], 'namespace' => 'Lembarek\Auth\Controllers'], function () {
+Route::group([
+    'as' => 'auth::',
+    'middleware' => ['web'],
+    'namespace' => 'Lembarek\Auth\Controllers'
+], function () {
     Route::get('/register', [
     'as' => 'register',
     'uses' => 'AuthController@register',
@@ -51,4 +55,16 @@ Route::group(['as' => 'auth::', 'middleware' => ['web'], 'namespace' => 'Lembare
         'as' => 'post_reset_password',
         'uses' => 'PasswordController@resetPassword',
         ]);
+
+
+    Route::get('/auth/{provider}', [
+        'as' => 'socialite.redirect',
+        'uses' => 'SocialiteController@redirectToProvider',
+    ]);
+
+    Route::get('/auth/{provider}/callback', [
+        'as' => 'socialite.callback',
+        'uses' => 'SocialiteController@handleProviderCallback',
+    ]);
+
 });
