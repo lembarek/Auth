@@ -59,12 +59,6 @@ Route::group([
 
     Route::get('/auth/{provider}', [
         'as' => 'socialite.redirect',
-        'uses' => 'SocialiteController@redirectToProvider',
+        'uses' => 'SocialiteController@login',
     ]);
-
-    Route::get('/auth/{provider}/callback', [
-        'as' => 'socialite.callback',
-        'uses' => 'SocialiteController@handleProviderCallback',
-    ]);
-
 });

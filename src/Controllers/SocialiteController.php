@@ -2,66 +2,27 @@
 
 namespace Lembarek\Auth\Controllers;
 
-use Auth;
-use Socialite;
-use Lembarek\Auth\Repositories\UserRepository;
+use Illuminate\Http\Request;
+use Lembarek\Auth\Services\AuthenticateUser;
 
 class SocialiteController extends Controller
 {
+    protected $authenticateUser;
 
-    protected $userRepo;
-
-    public function __construct(UserRepository $userRepo)
+    public function __construct(AuthenticateUser $authenticateUser)
     {
-        $this->userRepo = $userRepo;
-    }
-
-
-    /**
-     * Redirect the user to the GitHub authentication page.
-     *
-     * @param string $provider
-     *
-     * @return Response
-     */
-    public function redirectToProvider($provider)
-    {
-        return Socialite::driver($provider)->redirect();
+        $this->authenticateUser = $authenticateUser;
     }
 
     /**
-     * Obtain the user information from GitHub.
+     * log a user using socialite
      *
-     * @param string $provider
-     *
+     * @param  string  $provider
      * @return Response
      */
-    public function handleProviderCallback($provider)
+    public function login($provider, Request $request)
     {
-        $providerUser = Socialite::driver($provider)->user();
-
-        $user = $this->findOrCreateUser($providerUser);
-
-        auth()->login($user, true);
-
-        return redirect()->intended(route('core::home'));
+        return $this->authenticateUser->authenticate($provider, $request->has('code'));
     }
 
-     /**
-     * Return user if exists; create and return if doesn't
-     *
-     * @param $providerUser
-     * @return User
-     */
-    private function findOrCreateUser($providerUser)
-    {
-        if ($user = $this->userRepo->findBy('email', $providerUser->getEmail())) {
-            return $user;
-        }
-
-        return $this->userRepo->create([
-            'username' => $providerUser->getNickname(),
-            'email' => $providerUser->getEmail(),
-        ]);
-    }
 }
