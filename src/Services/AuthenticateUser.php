@@ -56,12 +56,8 @@ class AuthenticateUser
     {
         $providerUser = $this->socialite->driver($provider)->user();
 
-        $user = $this->findOrCreateUser($providerUser);
-
-        auth()->login($user, true);
-
-        return redirect()->intended(route('core::home'));
-    }
+        return $this->findOrCreateUser($providerUser);
+     }
 
      /**
      * Return user if exists; create and return if doesn't

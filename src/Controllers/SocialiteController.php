@@ -22,7 +22,12 @@ class SocialiteController extends Controller
      */
     public function login($provider, Request $request)
     {
-        return $this->authenticateUser->authenticate($provider, $request->has('code'));
+        $user = $this->authenticateUser->authenticate($provider, $request->has('code'));
+
+        auth()->login($user, true);
+
+        return redirect()->intended(route('core::home'));
+
     }
 
 }
