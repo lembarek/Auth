@@ -75,6 +75,7 @@ class AuthController extends Controller
         $attemp = Auth::attempt($inputs, !!$rememberme);
 
         if (!$attemp) {
+            $request->session()->flash('error', trans('auth.failed'));
             return Redirect::back();
         }
 
