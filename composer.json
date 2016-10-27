@@ -36,6 +36,5 @@
     },
     "scripts": {
         "test": "phpunit"
-    },
-    "minimum-stability": "stable"
+    }
 }
