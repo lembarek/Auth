@@ -46,7 +46,7 @@ class AuthController extends Controller
 
         Event::fire(new UserHasCreated($user));
 
-        return Redirect::route('core::home');
+        return Redirect::route('/');
     }
 
 
