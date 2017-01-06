@@ -79,7 +79,7 @@ class AuthController extends Controller
             return Redirect::back();
         }
 
-        return Redirect::intended(route('core::home'));
+        return Redirect::intended('/');
 
     }
 
