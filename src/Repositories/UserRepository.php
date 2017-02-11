@@ -2,7 +2,7 @@
 
  namespace Lembarek\Auth\Repositories;
 
-use Lembarek\Auth\Models\User;
+use App\Models\User;
 
 class UserRepository extends Repository implements UserRepositoryInterface
 {
