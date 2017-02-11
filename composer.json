@@ -27,7 +27,11 @@
     "autoload": {
         "psr-4": {
             "Lembarek\\Auth\\": "src"
-        }
+        },
+        "files": [
+          "src/testing/helpers.php",
+          "src/factories/ModelFactory.php"
+        ]
     },
     "autoload-dev": {
         "classmap": [
