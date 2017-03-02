@@ -4,12 +4,12 @@ use App\Models\User;
 
 function createUser($overs = [], $limit=1)
 {
-    return factory(User::class, $limit)->create($overs);
+    return ufactory(User::class, $limit)->create($overs);
 }
 
 function makeUser($overs = [])
 {
-    return factory(User::class)->make($overs);
+    return ufactory(User::class)->make($overs);
 }
 
 function createAdmin($overs = [])
