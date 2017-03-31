@@ -56,9 +56,10 @@ Route::group([
         'uses' => 'PasswordController@resetPassword',
         ]);
 
-
-    Route::get('/auth/{provider}', [
-        'as' => 'socialite.redirect',
-        'uses' => 'SocialiteController@login',
-    ]);
+    if(env('USING_LARAVEL_SOCIALITE', true)){
+      Route::get('/auth/{provider}', [
+          'as' => 'socialite.redirect',
+          'uses' => 'SocialiteController@login',
+      ]);
+    }
 });
